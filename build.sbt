@@ -18,6 +18,8 @@ lazy val commonSettings = Seq(
     Circe.circeParse,
     Cats.cats,
     Cats.catsEffect,
+    Cats.catsBird,
+    Cats.catsBirdEffect,
     Logging.scalaLogging,
     Time.nScalaTime,
     testFramework
