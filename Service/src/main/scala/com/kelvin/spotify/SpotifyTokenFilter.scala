@@ -3,13 +3,12 @@ package com.kelvin.spotify
 import com.github.nscala_time.time.Imports.richReadableInstant
 import com.kelvin.spotify.models.AccessTokenResponse
 import com.twitter.finagle.http.{Request, Response}
-import com.twitter.finagle.{Filter, Service}
+import com.twitter.finagle.{Filter, Service, SimpleFilter}
 import com.twitter.util.Future
 import org.joda.time.DateTime
-import cats.data.EitherT
-import cats.implicits._
+import cats.syntax.all._
 
-class SpotifyTokenFilter(authApi: AuthApi) extends Filter[Request, Response, Request, Response] {
+class SpotifyTokenFilter(authApi: AuthApi) extends SimpleFilter[Request, Response] {
   private var expiresAt: DateTime = DateTime.now()
   private var token: String       = ""
 
@@ -33,7 +32,9 @@ class SpotifyTokenFilter(authApi: AuthApi) extends Filter[Request, Response, Req
   }
 
   def updateToken: Future[AccessTokenResponse] = {
-    authApi.getToken.leftMap(error => )
-
+    authApi.getToken.value.flatMap {
+      case Right(token) => Future(token)
+      case Left(err)    => Future.exception[AccessTokenResponse](new Exception(err))
+    }
   }
 }

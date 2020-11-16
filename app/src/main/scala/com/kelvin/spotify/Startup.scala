@@ -7,7 +7,7 @@ class Startup {}
 
 object Startup {
   def startup(config: ApplicationConfig): IO[ExitCode] = {
-    val
     IO(ExitCode.Success)
   }
+
 }

@@ -7,6 +7,6 @@ object PlaylistGenerator {
       sourcePlaylistId: String,
       destinationPlaylistId: String,
       apiToken: String
-  ): PlaylistGenerator = {}
+  ): PlaylistGenerator = ???
 
 }
