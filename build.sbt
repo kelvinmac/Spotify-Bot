@@ -37,11 +37,15 @@ lazy val domain = (project in file("./domain"))
   )
 
 lazy val testSupport = (project in file("./test-support"))
+  .dependsOn(domain)
   .settings(commonSettings)
   .settings(
     name := "Test-Support",
     libraryDependencies ++= List(
-      )
+      Finagle.finchCore,
+      Finagle.finchCirce,
+      Finagle.finagleCore
+    )
   )
 
 lazy val application = (project in file("./app"))
@@ -55,13 +59,14 @@ lazy val application = (project in file("./app"))
   )
 
 lazy val service = (project in file("./service"))
-  .dependsOn(domain)
+  .dependsOn(domain, testSupport)
   .settings(commonSettings)
   .settings(
     name := "Service",
     libraryDependencies ++= List(
       Config.pureConfig,
-      Finagle.finagleCore,
-      Finagle.finagleCirce
+      Finagle.finchCore,
+      Finagle.finchCirce,
+      Finagle.finagleCore
     )
   )
