@@ -1,6 +1,6 @@
 package com.kelvin.spotify
 
-class PlaylistGenerator(sourcePlaylistId: String, destinationPlaylistId: String, playlistCreator: PlaylistManager) {}
+class PlaylistGenerator(sourcePlaylistId: String, destinationPlaylistId: String, playlistCreator: PlaylistService) {}
 
 object PlaylistGenerator {
   def apply(

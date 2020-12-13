@@ -8,5 +8,5 @@ final case class Playlist(
     collaborative: Boolean,
     public: Boolean,
     description: String,
-    uri: URI
+    uri: String
 )
