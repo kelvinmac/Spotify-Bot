@@ -4,6 +4,7 @@ import cats.effect._
 import config.ApplicationConfig
 import com.typesafe.scalalogging.LazyLogging
 import pureconfig.ConfigSource
+import pureconfig.generic.auto._
 
 object Main extends IOApp with LazyLogging {
   def run(args: List[String]): IO[ExitCode] = {

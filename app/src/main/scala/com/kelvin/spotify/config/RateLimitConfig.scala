@@ -1,4 +1,4 @@
 package com.kelvin.spotify.config
-import scala.concurrent.duration.Duration
+import scala.concurrent.duration.FiniteDuration
 
-case class RateLimitConfig(rate: Integer, duration: Duration)
+case class RateLimitConfig(rate: Int, duration: FiniteDuration)

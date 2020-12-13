@@ -33,7 +33,7 @@ object Dependencies {
 
     lazy val finchCore   = "com.github.finagle" %% "finchx-core"  % version
     lazy val finchCirce  = "com.github.finagle" %% "finchx-circe" % version
-    lazy val finagleCore = "com.twitter"        %% "finagle-http" % "20.10.0"
+    lazy val finagleHttp = "com.twitter"        %% "finagle-http" % "20.10.0"
   }
 
   lazy val testFramework = "org.scalatest" %% "scalatest" % "3.2.0" % "test"

@@ -1,8 +1,8 @@
 package com.kelvin.spotify.config
 
-case class ApplicationConfig(spotifyApiConfig: SpotifyApiConfig)
+final case class ApplicationConfig(spotifyApiConfig: SpotifyApiConfig)
 
-case class SpotifyApiConfig(
+final case class SpotifyApiConfig(
     url: String,
     sourcePlaylist: String,
     destinationPlaylist: String,
